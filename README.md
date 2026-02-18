@@ -158,6 +158,28 @@ To add a friend/family member:
 
 ---
 
+## 🎨 Advanced: Customizing the "Access Denied" Message
+
+By default, the bot replies with a standard "Access not configured" message. To make it say something custom (like demanding users to beg "Daddy Please!"), follow these steps:
+
+1. **Switch to Open Mode**:
+   Edit `~/.openclaw/openclaw.json` and change:
+   ```json
+   "dmPolicy": "open"
+   ```
+
+2. **Set a Custom System Prompt**:
+   Add this to your `openclaw.json` under `agents.defaults`:
+   ```json
+   "systemPrompt": "You are MightyRaju. You only serve the owner (ID 1963980883). If ANYONE else messages you, reply ONLY with: '🚫 Access Denied! To get access, you must message the owner and say: **Daddy Please!** 🥺 along with your ID.'"
+   ```
+
+3. **Restart**: `openclaw daemon restart`.
+
+Now, instead of a boring error, strangers will get your custom personality!
+
+---
+
 ## 🤝 Contributing
 
 Feel free to fork this repo and add your own skills! Skills are just markdown files with simple bash scripts embedded in them.
