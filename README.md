@@ -14,68 +14,64 @@ This project uses [OpenClaw](https://github.com/google-deepmind/openclaw) as the
 
 ---
 
-## 🤖 Creating Your Telegram Bot (Required)
+## 🛠️ Step 1: Preparation (Get Your Keys)
 
-Before installing, you need a bot token and your own user ID.
+Before installing anything, you need to gather a few free keys.
 
-1. **Create the Bot**:
-   - Open Telegram and search for **[@BotFather](https://t.me/BotFather)**.
-   - Send the command `/newbot`.
-   - Follow the prompts to name your bot (e.g., `MyJarvisBot`).
-   - **Copy the API Token** it gives you (looks like `123456:ABC-DEF...`).
+### 🤖 1. Create Your Telegram Bot
+1. Open Telegram and search for **[@BotFather](https://t.me/BotFather)**.
+2. Send the command `/newbot`.
+3. Follow the prompts to name your bot (e.g., `MyJarvisBot`).
+4. **Copy the API Token** it gives you (looks like `123456:ABC-DEF...`).
 
-2. **Get Your User ID**:
-   - Search for **[@userinfobot](https://t.me/userinfobot)**.
-   - Click "Start".
-   - **Copy your numeric ID** (e.g., `1963980883`). You need this to whitelist yourself so no one else can control your bot.
+### 🆔 2. Get Your User ID
+1. Search for **[@userinfobot](https://t.me/userinfobot)**.
+2. Click "Start".
+3. **Copy your numeric ID** (e.g., `1963980883`). You need this to whitelist yourself so no one else can control your bot.
 
----
+### 🔑 3. Get Your AI API Key
 
-## 🔑 Getting Your Free API Keys
-
-### Option A: NVIDIA NIM (Recommended for Kimi k2.5)
-NVIDIA offers generous free credits (often 1000-5000 API calls) for developers.
-
+#### Option A: NVIDIA NIM (Recommended for Kimi k2.5)
 1. Go to [build.nvidia.com](https://build.nvidia.com/moonshot-ai/kimi-k2-5).
 2. Click **"Get API Key"**.
 3. Create a free NVIDIA Developer account.
-4. Copy the key (starts with `nvapi-...`). This gives you access to Kimi k2.5, Llama 3.1 405B, and more.
+4. Copy the key (starts with `nvapi-...`).
 
-### Option B: OpenRouter (Alternative)
-OpenRouter aggregates free models like DeepSeek V3, Llama 3, and Qwen.
-
+#### Option B: OpenRouter (Alternative)
 1. Go to [openrouter.ai](https://openrouter.ai/).
 2. Sign up and go to **Keys**.
 3. Create a key.
-4. Use `https://openrouter.ai/api/v1` as the `baseUrl` in `openclaw.json` (under `custom-integrate-api-nvidia-com`).
 
 ---
 
-## ⚡ Fast Deployment (One-Click)
+## ⚡ Step 2: Fast Deployment (One-Click)
 
-We provide a specialized script that installs dependencies, Node.js, OpenClaw, and configures everything for you interactively.
+Once you have your keys, run this specialized script. It installs dependencies, Node.js, OpenClaw, and configures everything for you interactively.
 
 1. **Run the Installer**:
    ```bash
    curl -sL https://raw.githubusercontent.com/Ryuki0x1/openclaw-free-kimi-api/master/setup.sh | bash
    ```
 2. **Follow the Prompts**:
-   - Enter your **Telegram Bot Token**.
+   - Paste your **Telegram Bot Token**.
    - Choose **NVIDIA NIM** (for Kimi) or **OpenRouter**.
-   - Enter your **API Key**.
+   - Paste your **API Key**.
    - Enter your **Telegram User ID** (to secure the bot).
 
 The script will generate secure config files, install all skills, and start the daemon automatically.
 
 ---
 
-## 🛠️ Manual Installation
+## 🛠️ Manual Installation (Alternative)
+
+If you prefer to do it step-by-step:
+
+### 1. Install System Tools
 On Debian/Ubuntu:
 ```bash
 sudo apt update
 sudo apt install -y curl git ripgrep bc jq
 ```
-*`ripgrep` is needed for memory search, `bc` for the calculator skill.*
 
 ### 2. Install OpenClaw
 ```bash
@@ -111,23 +107,7 @@ cp openclaw.json.example ~/.openclaw/openclaw.json
 cp access-whitelist.example.json ~/.openclaw/access-whitelist.json
 ```
 
----
-
-## ⚙️ Configuration
-
-### 1. Edit `openclaw.json`
-Open `~/.openclaw/openclaw.json` and fill in your keys:
-
-- **`apiKey`**: Your NVIDIA NIM key (starts with `nvapi-`).
-- **`botToken`**: Your Telegram Bot Token (from @BotFather).
-- **`token`** (under gateway): Generate a random auth token.
-
-### 2. Edit `access-whitelist.json`
-Open `~/.openclaw/access-whitelist.json`:
-- Replace `YOUR_TELEGRAM_USER_ID` with your numeric Telegram ID (get it from `@userinfobot`).
-- **Start Securely**: By default, this config blocks **everyone** except the whitelist.
-
-### 3. Start the Daemon
+### 5. Start the Daemon
 ```bash
 openclaw daemon start
 ```
