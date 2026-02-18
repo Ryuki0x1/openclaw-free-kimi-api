@@ -14,6 +14,23 @@ This project uses [OpenClaw](https://github.com/google-deepmind/openclaw) as the
 
 ---
 
+## 🤖 Creating Your Telegram Bot (Required)
+
+Before installing, you need a bot token and your own user ID.
+
+1. **Create the Bot**:
+   - Open Telegram and search for **[@BotFather](https://t.me/BotFather)**.
+   - Send the command `/newbot`.
+   - Follow the prompts to name your bot (e.g., `MyJarvisBot`).
+   - **Copy the API Token** it gives you (looks like `123456:ABC-DEF...`).
+
+2. **Get Your User ID**:
+   - Search for **[@userinfobot](https://t.me/userinfobot)**.
+   - Click "Start".
+   - **Copy your numeric ID** (e.g., `1963980883`). You need this to whitelist yourself so no one else can control your bot.
+
+---
+
 ## 🔑 Getting Your Free API Keys
 
 ### Option A: NVIDIA NIM (Recommended for Kimi k2.5)
