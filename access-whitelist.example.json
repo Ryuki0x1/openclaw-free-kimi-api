@@ -1,0 +1,10 @@
+{
+  "owner": "YOUR_TELEGRAM_USER_ID",
+  "allowed_users": [
+    {
+      "id": "YOUR_TELEGRAM_USER_ID",
+      "name": "owner",
+      "added_at": "2026-01-01T00:00:00.000000"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+[Unit]
+Description=OpenClaw Gateway (v2026.2.17)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+ExecStart="/home/ryuki/.nvm/versions/node/v22.22.0/bin/node" "/home/ryuki/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/dist/index.js" gateway --port 41592 --bind tailnet
+Restart=always
+RestartSec=5
+KillMode=process
+Environment=HOME=/home/ryuki
+Environment="PATH=/home/ryuki/.nvm/current/bin:/home/ryuki/.local/bin:/home/ryuki/.npm-global/bin:/home/ryuki/bin:/home/ryuki/.volta/bin:/home/ryuki/.asdf/shims:/home/ryuki/.bun/bin:/home/ryuki/.fnm/current/bin:/home/ryuki/.local/share/pnpm:/usr/local/bin:/usr/bin:/bin"
+Environment=OPENCLAW_GATEWAY_PORT=41592
+Environment=OPENCLAW_GATEWAY_TOKEN=b6e6d7f92e331ddc535a9ccda440a1359ddbd86d8bc45557
+Environment="OPENCLAW_SYSTEMD_UNIT=openclaw-gateway.service"
+Environment=OPENCLAW_SERVICE_MARKER=openclaw
+Environment=OPENCLAW_SERVICE_KIND=gateway
+Environment=OPENCLAW_SERVICE_VERSION=2026.2.17
+
+[Install]
+WantedBy=default.target

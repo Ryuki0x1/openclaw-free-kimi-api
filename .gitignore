@@ -1,0 +1,17 @@
+# Secrets
+*.json
+!*.example.json
+.env
+.env.*
+
+# Logs & temp
+*.log
+npm-debug.log*
+node_modules/
+.DS_Store
+
+# OpenClaw specific
+workspace/
+identity/
+sessions/
+memory/
